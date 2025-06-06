@@ -1,20 +1,14 @@
+
+
 .page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
+  padding: 80px 20px;
+  gap: 24px;
+  font-family: var(--font-geist-sans, sans-serif);
 }
+
 
 .card {
   background-color: #ffffff;
@@ -23,10 +17,43 @@
   padding: 1.5rem;
   margin: 1rem 0;
   transition: transform 0.2s ease;
+  width: 100%;
+  max-width: 600px;
 }
 .card:hover {
   transform: translateY(-4px);
 }
+
+.title {
+  background-color: #00007d;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  background-color: #00ffff;
+  color: rgb(33, 32, 32);
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.button:hover:enabled {
+  background-color: #000099;
+  color: #ffffff;
+}
+
 
 
 @media (prefers-color-scheme: dark) {

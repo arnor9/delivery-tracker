@@ -53,7 +53,9 @@ export default function Home() {
   };
   return (
     <main className={styles.page}>
-      <h1>{language === "is" ? "Vöruleit" : "Delivery Tracker"}</h1>
+      <h1 className={styles.title}>
+        {language === "is" ? "Vöruleit" : "Delivery Tracker"}
+      </h1>
 
       <input
         type="text"
@@ -72,7 +74,11 @@ export default function Home() {
         <option value="is">Íslenska</option>
       </select>
 
-      <button onClick={handleCheck} disabled={loading}>
+      <button
+        className={styles.button}
+        onClick={handleCheck}
+        disabled={loading}
+      >
         {loading
           ? language === "is"
             ? "Sæki..."
@@ -88,11 +94,7 @@ export default function Home() {
         <div className={styles.result}>
           <h2>{language === "is" ? "Ferill" : "Tracking History"}</h2>
           {result.map((info: TrackingInfo, index: number) => (
-            <div
-              className={styles.card}
-              key={index}
-              style={{ marginBottom: "1rem" }}
-            >
+            <div className={styles.card} key={index}>
               <p>
                 <strong>{language === "is" ? "Staða" : "Status"}:</strong>{" "}
                 {info.label}
