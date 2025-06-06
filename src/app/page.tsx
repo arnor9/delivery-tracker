@@ -2,11 +2,17 @@
 import { useState } from "react";
 import styles from "./page.module.css";
 
+type TrackingInfo = {
+  label: string;
+  detail: string;
+  date: string;
+};
+
 export default function Home() {
   const [barcode, setBarcode] = useState("");
   const [language, setLanguage] = useState<"en" | "is">("en");
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<any>(null);
+  const [result, setResult] = useState<TrackingInfo[] | null>(null);
   const [error, setError] = useState("");
   const baseUrl = process.env.NEXT_PUBLIC_URL;
 
@@ -81,7 +87,7 @@ export default function Home() {
       {result && (
         <div className={styles.result}>
           <h2>{language === "is" ? "Ferill" : "Tracking History"}</h2>
-          {result.map((info: any, index: number) => (
+          {result.map((info: TrackingInfo, index: number) => (
             <div
               className={styles.card}
               key={index}
