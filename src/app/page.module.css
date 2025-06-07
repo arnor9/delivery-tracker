@@ -1,14 +1,15 @@
-
-
 .page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 80px 20px;
+  
   gap: 24px;
   font-family: var(--font-geist-sans, sans-serif);
 }
 
+.body {
+  padding: 20px;
+}
 
 .card {
   background-color: #ffffff;
@@ -20,16 +21,21 @@
   width: 100%;
   max-width: 600px;
 }
+
 .card:hover {
   transform: translateY(-4px);
 }
 
 .title {
-  background-color: #00007d;
-  color: white;
+  color: rgb(255, 255, 255);
   padding: 1rem 2rem;
   font-size: 2rem;
   border-radius: 8px;
+  text-align: center;
+}
+
+.titleWrapper {
+  flex: 1;
   text-align: center;
 }
 
@@ -50,11 +56,72 @@
 }
 
 .button:hover:enabled {
-  background-color: #000099;
+  background-color: 
+  #00007e;
   color: #ffffff;
 }
 
+.header {
+  background-color: 
+  #00007e;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  color: white;
+  box-sizing: border-box;
+}
 
+.logo {
+  height: 40px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.language {
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.input {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  width: 280px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-top: 100px;
+}
+
+.input:focus {
+  border-color: #000099;
+  box-shadow: 0 0 0 3px rgba(0, 0, 153, 0.2);
+}
+
+.select {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  width: 120px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.select:focus {
+  border-color: #000099;
+  box-shadow: 0 0 0 3px rgba(0, 0, 153, 0.2);
+}
 
 @media (prefers-color-scheme: dark) {
   .page {
@@ -66,8 +133,6 @@
     --button-secondary-hover: #1a1a1a;
   }
 }
-
-
 
 @media (max-width: 600px) {
   .page {

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import styles from "./page.module.css";
 
+//The type we expect from the API
 type TrackingInfo = {
   label: string;
   detail: string;
@@ -16,6 +17,7 @@ export default function Home() {
   const [error, setError] = useState("");
   const baseUrl = process.env.NEXT_PUBLIC_URL;
 
+  // This function is triggerd by the check button on click and it fetches info from the API
   const handleCheck = async () => {
     setLoading(true);
     setError("");
@@ -51,28 +53,35 @@ export default function Home() {
       setLoading(false);
     }
   };
+
   return (
     <main className={styles.page}>
-      <h1 className={styles.title}>
-        {language === "is" ? "Vöruleit" : "Delivery Tracker"}
-      </h1>
+      <div className={styles.header}>
+        <img src="/dropp-logo.png" alt="Dropp logo" width={80} height={70} />
+        <div className={styles.titleWrapper}>
+          <h1 className={styles.title}>
+            {language === "is" ? "Vöruleit" : "Delivery Tracker"}
+          </h1>
+        </div>
+        <select
+          value={language}
+          className={styles.select}
+          onChange={(e) => setLanguage(e.target.value as "en" | "is")}
+        >
+          <option value="en">English</option>
+          <option value="is">Íslenska</option>
+        </select>
+      </div>
 
       <input
         type="text"
+        className={styles.input}
         placeholder={
           language === "is" ? "Sláðu inn strikamerki" : "Enter barcode"
         }
         value={barcode}
         onChange={(e) => setBarcode(e.target.value)}
       />
-
-      <select
-        value={language}
-        onChange={(e) => setLanguage(e.target.value as "en" | "is")}
-      >
-        <option value="en">English</option>
-        <option value="is">Íslenska</option>
-      </select>
 
       <button
         className={styles.button}
